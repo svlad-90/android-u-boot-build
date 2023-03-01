@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="aosp" fetch="https://android.googlesource.com/" review="https://android.googlesource.com/" />
+  <default revision="master" remote="aosp" sync-j="4" />
+
+  <superproject name="kernel/superproject" revision="u-boot-mainline">
+    <remote  name="aosp" fetch="https://android.googlesource.com/" review="https://android.googlesource.com/" />
+  </superproject>
+
+  <project path="bootable/libbootloader" name="platform/bootable/libbootloader" remote="aosp" revision="ccf35bfd516301ce6efd95783a6c7bd4ca556e55"/>
+  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" remote="aosp" revision="4e0aa41c4eda608ec715d704f8ab511e3dd10774"/>
+  <project path="build/kernel" name="kernel/build" remote="aosp" revision="62985f09053339f891c8f8cd2a1fc81e825d0a4e">
+    <linkfile src="build.sh" dest="build/build.sh" />
+    <linkfile src="build_utils.sh" dest="build/build_utils.sh" />
+    <linkfile src="_setup_env.sh" dest="build/_setup_env.sh" />
+    <linkfile src="kleaf/bazel.sh" dest="tools/bazel" />
+  </project>
+  <project path="external/arm-trusted-firmware" name="platform/external/arm-trusted-firmware" remote="aosp" revision="bef081324a58c77ab585e337af6053ac6b6ff1c3"/>
+  <project path="external/boringssl" name="platform/external/boringssl" remote="aosp" revision="84f1dfe9bec6ffbebbdcb0af5225763479ce254c"/>
+  <project path="external/compiler-rt" name="platform/external/compiler-rt" remote="aosp" revision="b429e93fbf939d13875665f7666c36dde342371d"/>
+  <project path="external/dtc" name="platform/external/dtc" remote="aosp" revision="007e485e205e2d14b2ef1657021a37e95ee3a3d6"/>
+  <project path="external/open-dice" name="platform/external/open-dice" remote="aosp" revision="a873dcf0702b21c42838d04140ccf0a15ceae94d"/>
+  <project path="external/bazel-skylib" name="platform/external/bazel-skylib" remote="aosp" revision="f998e5dc13c03f0eae9e373263d3afff0932c738"/>
+  <project path="external/stardoc" name="platform/external/stardoc" remote="aosp" revision="398e266839a9d590a3c4fe4e9bc382bc2607a06e"/>
+  <project path="external/swig" name="platform/external/swig" remote="aosp" revision="0ffab894f917fcbbd031eaab870fbabaefe5daaa"/>
+  <project path="external/zlib" name="platform/external/zlib" remote="aosp" revision="4d02aae00087d32d4cd7e74c038d7256dc544fa9"/>
+  <project path="u-boot" name="platform/external/u-boot" remote="aosp" revision="9b03edb275b6dd7f0433fb3f470dac3c1f1b8c80">
+    <linkfile src="." dest=".source_date_epoch_dir" />
+    <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
+  </project>
+  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9"
+    remote="aosp" revision="dfa84be8039e99afda2a9b31fc8bb6238d4f1c62" cloneDepth="1"/>
+  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9"
+    remote="aosp" revision="3b6581a8f1fca1a0a3bf9f91d9eede6de77e414c" cloneDepth="1"/>
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8"
+    remote="aosp" revision="62a4a6b7a8b04da1ec8772eac68179bb26d62737" cloneDepth="1"/>
+  <project path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9"
+    remote="aosp" revision="9e42d0084ca256dd11d392fe9b4a39e2c166d3cd" cloneDepth="1"/>
+  <project path="prebuilts/bazel/linux-x86_64" name="platform/prebuilts/bazel/linux-x86_64"
+    remote="aosp" revision="8e5fbd4a700a3d00a810c8a890237eac04ca863b" cloneDepth="1"/>
+  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86"
+    remote="aosp" revision="849c7e048986d687d93da58b6bc77f87896996b7" cloneDepth="1"/>
+  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools"
+    remote="aosp" revision="d47c9b441de07f950e63f8a686266f56f58ea6c1" cloneDepth="1"/>
+  <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11"
+    remote="aosp" revision="bacaa8f7ac8f1b3f1247a40dd2f8d2b6ddda1f4d" cloneDepth="1"/>
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools"
+    remote="aosp" revision="a6313f09d63958d0a0f154b9f0d8d16047563040" cloneDepth="1"/>
+  <project path="prebuilts/ndk-r23" name="toolchain/prebuilts/ndk/r23"
+    remote="aosp" revision="19ac7e4eded12adb99d4f613490dde6dd0e72664" cloneDepth="1"/>
+  <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" remote="aosp" revision="2680066d0844544b3e78d6022cd21321d31837c3"/>
+  <project path="kernel/manifest" name="kernel/manifest" remote="aosp" revision="f50cc3cf9ae83c57bf14bcf09636d1a04772e72d"/>
+</manifest>
