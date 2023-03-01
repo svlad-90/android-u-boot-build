@@ -11,11 +11,10 @@ Now you'll have a working answer:
 - Create a fork of this repository
 - Go to https://ci.android.com/builds/branches/aosp_u-boot-mainline/grid?
 - Select the u-boot build, which you would like to build locally. Open it's artifacts.
-- Inside the artifacts open the **BUILD_INFO** artifact
-- Inside the BUILD_INFO JSON file find the **"parsed_manifest"** JSON object
-- Manually convert all items inside the "parsed_manifest" section into the repo XML syntax and replace the conent of the **[default.xml](./default.xml)**
+- Inside the artifacts open the **manifest_xyz.xml** artifact, where **xyz** would be the opened CI/CD job number ( e.g. 9670045 )
+- Copy paste content of the file into the **[default.xml](./default.xml)**
 - Commit the changes
-- Call ./build.sh inside this repository in the following way:
+- Call ./build.sh inside the cloned repository folder in the following way:
 
   ```
   ./build.sh <BUILD_DIR> <MANIFEST_URL> <MANIFEST_BRANCH> <U_BOOT_BUILD_CONFIG>
@@ -38,7 +37,7 @@ Now you'll have a working answer:
   ./build.sh /mnt/manual_android_uboot_build https://github.com/svlad-90/android-u-boot-build.git master qemu_aarch64
   ```
 
-- The resulting artifacts will bе located in **something-like-this** directory:
+- The resulting artifacts will bе located in the following directory:
 
   ```
   ${BUILD_DIR}/out/dist/${U_BOOT_BUILD_TARGET}
